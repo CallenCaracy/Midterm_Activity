@@ -1,6 +1,6 @@
 /* App.css */
 
-/* Global container */
+/* Full-page background image */
 body {
   background-image: url('img/background.jpg');
   background-size: cover;
@@ -10,47 +10,49 @@ body {
   padding: 0;
 }
 
+/* Main container */
 .container {
-  margin: 20px auto;
+  margin: 60px auto;      
   max-width: 1500px;
-  padding: 20px;
-  margin-top: 60px;
+  padding: 40px;             
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f8ff;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Headings */
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #2a2a2a;
 }
 
 h2 {
   margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: #3a3a3a;
+  
 }
 
 /* Paragraphs */
 p {
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   color: #555;
-  justify-content:space-between;
 }
 
-/* Simple table styling with invisible outlines */
+/* Table styling with added spacing */
 table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+  border-collapse: separate;     /* Allows custom spacing between cells */
+  border-spacing: 0 10px;       /* 10px vertical spacing between rows */
+  margin-top: 1.5rem;
 }
 
 th,
 td {
-  border: none;  /* make table outlines invisible */
-  padding: 8px;
+  border: none;   /* Invisible outlines */
+  padding: 12px;  /* Increased cell padding */
   text-align: left;
 }
 
@@ -61,6 +63,6 @@ p.loading {
 }
 
 p.error {
-  color: #d32f2f;  /* red error message */
+  color: #d32f2f;
   font-weight: bold;
 }

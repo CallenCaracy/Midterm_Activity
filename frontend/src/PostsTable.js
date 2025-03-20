@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useQuery, useSubscription, gql } from "@apollo/client";
+import './App.css';
 
 const GET_POSTS = gql`
   query GetPosts {
