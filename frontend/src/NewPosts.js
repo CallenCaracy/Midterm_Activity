@@ -1,20 +1,42 @@
-import { useSubscription } from "@apollo/client";
-import { POST_CREATED_SUBSCRIPTION } from "./subscriptions";
+import React, { useEffect } from "react";
+import { useSubscription, gql } from "@apollo/client";
 
-const NewPosts = () => {
-  const { data, loading } = useSubscription(POST_CREATED_SUBSCRIPTION);
+const POST_CREATED_SUBSCRIPTION = gql`
+  subscription OnPostCreated {
+    postCreated {
+      id
+      title
+      content
+      userId
+    }
+  }
+`;
 
-  console.log("Subscription data:", data); // Log subscription data
+function NewPosts() {
+  const { data, loading, error } = useSubscription(POST_CREATED_SUBSCRIPTION);
 
-  if (loading) return <p>Waiting for new posts...</p>;
+  useEffect(() => {
+    if (data) {
+      console.log("Subscription data:", data);
+    }
+  }, [data]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div>
-      <h2>New Post:</h2>
-      <p>Title: {data?.postCreated.title}</p>
-      <p>Content: {data?.postCreated.content}</p>
+      <h2>New Post</h2>
+      {data && (
+        <div>
+          <p>ID: {data.postCreated.id}</p>
+          <p>Title: {data.postCreated.title}</p>
+          <p>Content: {data.postCreated.content}</p>
+          <p>User ID: {data.postCreated.userId}</p>
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default NewPosts;

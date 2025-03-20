@@ -1,8 +1,9 @@
 import React from "react";
 import { ApolloProvider } from "@apollo/client";
-import { client } from "./apollo-client"; // Your Apollo Client configuration
+import { client } from "./apollo-client";
 import NewPosts from "./NewPosts";
-import PostsTable from "./PostsTable"; // If you have a table for posts
+import PostsTable from "./PostsTable";
+import './App.css';
 
 function App() {
   return (

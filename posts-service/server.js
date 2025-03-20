@@ -50,14 +50,16 @@ const resolvers = {
       pubsub.publish("POST_CREATED", { postCreated: newPost });
       return newPost;
     },
-       
     updatePost: (_, { id, title, content }) =>
       prisma.post.update({ where: { id: Number(id) }, data: { title, content } }),
     deletePost: (_, { id }) => prisma.post.delete({ where: { id: Number(id) } }),
   },
   Subscription: {
     postCreated: {
-      subscribe: () => pubsub.asyncIterator(["POST_CREATED"]),
+      subscribe: () => {
+        console.log("Subscription resolver triggered!");
+        return pubsub.asyncIterator(["POST_CREATED"]);
+      },
     },
   },
 };
@@ -71,8 +73,6 @@ const wsServer = new WebSocketServer({
   server: httpServer,
   path: "/graphql",
 });
-
-useServer({ schema, context: () => ({ pubsub }) }, wsServer);
 
 useServer({ schema, context: () => ({ pubsub }) }, wsServer);
 
