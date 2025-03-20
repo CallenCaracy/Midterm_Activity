@@ -12,8 +12,9 @@ body {
 
 .container {
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 1500px;
   padding: 20px;
+  margin-top: 60px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f8ff;
   border: 1px solid #e0e0e0;
@@ -36,6 +37,7 @@ h2 {
 p {
   margin: 0.25rem 0;
   color: #555;
+  justify-content:space-between;
 }
 
 /* Simple table styling with invisible outlines */

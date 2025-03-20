@@ -11,6 +11,7 @@ function App() {
       <div className="container">
         <h1>Posts</h1>
         <PostsTable /> {/* Your component to display posts */}  
+        <hr></hr>
         <NewPosts />   {/* Subscription component for new posts */}  
       </div>
     </ApolloProvider>
