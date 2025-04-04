@@ -21,6 +21,9 @@
     "graphql-tag": "^2.12.5",
     "graphql-ws": "^5.5.0",
     "http": "0.0.1-security",
+    "ioredis": "^5.6.0",
+    "ipfs": "^0.66.1",
+    "redis": "^4.7.0",
     "ws": "^8.2.3"
   },
   "devDependencies": {
