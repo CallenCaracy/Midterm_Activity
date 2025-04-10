@@ -1,11 +1,12 @@
 import { create } from 'ipfs-core';
 
 function generatePost() {
+    const randomNum = Math.floor(Math.random() * 10000);
     return {
         id: Math.floor(Math.random() * 1000).toString(),
-        title: "Testing ni Bai",
-        content: "Testing ta ani",
-        userId: "1"
+        title: `Post Title ${randomNum}`,
+        content: `Content for post number ${randomNum}`,
+        userId: Math.floor(Math.random() * 5 + 1).toString()
     };
 }
 

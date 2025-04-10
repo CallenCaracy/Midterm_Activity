@@ -46,7 +46,7 @@ const resolvers = {
       const newPost = await prisma.post.create({ 
         data: { title, content, userId: Number(userId) }
       });
-      console.log("Publishing POST_CREATED:", newPost); // <-- Log here
+      console.log("Publishing POST_CREATED:", newPost); 
       pubsub.publish("POST_CREATED", { postCreated: newPost });
       return newPost;
     },
